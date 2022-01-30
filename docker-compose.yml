@@ -1,0 +1,29 @@
+version: "3"
+services:
+  database:
+    image: postgres:14-alpine
+    environment:
+      # - POSTGRES_USER=postgres # Default
+      - POSTGRES_PASSWORD=pg!what2cook_local
+      # In order to create multiple databases on startup, this is necessary
+      # See https://github.com/docker-library/postgres/issues/151 and https://stackoverflow.com/questions/46668233/multiple-databases-in-docker-and-docker-compose
+      # entrypoint:
+        #      sh -c "
+        #        echo 'CREATE DATABASE \"dei-lp-dev\"; CREATE DATABASE \"dei-lp-prod\"; CREATE DATABASE \"dei-lp-test\";' > /docker-entrypoint-initdb.d/01-create-dbs.sql;
+        #        docker-entrypoint.sh postgres
+        #      "
+    volumes:
+      - ./db-data/:/var/lib/postgresql/data
+    #   - ./01-create-dbs.sh:/docker-entrypoint-initdb.d/01-create-dbs.sh
+    ports:
+      - "5432:5432"
+
+  # pgadmin:
+  #   image: dpage/pgadmin4
+  #   environment:
+  #     - PGADMIN_DEFAULT_EMAIL=admin
+  #     - PGADMIN_DEFAULT_PASSWORD=password123
+  #   ports:
+  #     - "5050:80"
+  #   depends_on:
+  #     - database
