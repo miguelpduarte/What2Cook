@@ -7,7 +7,7 @@ import Config
 # Run `mix help test` for more information.
 config :what2cook, What2cook.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "pg!what2cook_local",
   hostname: "localhost",
   database: "what2cook_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
