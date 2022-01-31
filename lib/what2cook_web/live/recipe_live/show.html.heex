@@ -1,0 +1,46 @@
+<h1>Show Recipe</h1>
+
+<%= if @live_action in [:edit] do %>
+  <.modal return_to={Routes.recipe_show_path(@socket, :show, @recipe)}>
+    <.live_component
+      module={What2cookWeb.RecipeLive.FormComponent}
+      id={@recipe.id}
+      title={@page_title}
+      action={@live_action}
+      recipe={@recipe}
+      return_to={Routes.recipe_show_path(@socket, :show, @recipe)}
+    />
+  </.modal>
+<% end %>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @recipe.title %>
+  </li>
+
+  <li>
+    <strong>Source:</strong>
+    <%= @recipe.source %>
+  </li>
+
+  <li>
+    <strong>Type:</strong>
+    <%= @recipe.type %>
+  </li>
+
+  <li>
+    <strong>Ingredients:</strong>
+    <%= @recipe.ingredients %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @recipe.description %>
+  </li>
+
+</ul>
+
+<span><%= live_patch "Edit", to: Routes.recipe_show_path(@socket, :edit, @recipe), class: "button" %></span> |
+<span><%= live_redirect "Back", to: Routes.recipe_index_path(@socket, :index) %></span>

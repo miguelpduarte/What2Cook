@@ -1,0 +1,57 @@
+<h1>Listing Recipes</h1>
+
+<%= if @live_action in [:new, :edit] do %>
+  <.modal return_to={Routes.recipe_index_path(@socket, :index)}>
+    <.live_component
+      module={What2cookWeb.RecipeLive.FormComponent}
+      id={@recipe.id || :new}
+      title={@page_title}
+      action={@live_action}
+      recipe={@recipe}
+      return_to={Routes.recipe_index_path(@socket, :index)}
+    />
+  </.modal>
+<% end %>
+
+<div>
+  <i>magnifying glass</i>
+  <%= text_input :search, :search %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Source</th>
+      <th>Type</th>
+      <th>Ingredients</th>
+      <th>Description</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody id="recipes">
+    <%= for recipe <- @recipes do %>
+      <tr id={"recipe-#{recipe.id}"}>
+        <td>
+        <%= live_redirect to: Routes.recipe_show_path(@socket, :show, recipe) do %>
+          <b>
+          <%= recipe.title %>
+          </b>
+        <% end %>
+        </td>
+        <td><%= recipe.source %></td>
+        <td><%= recipe.type %></td>
+        <td><%= recipe.ingredients %></td>
+        <%# <td><%= recipe.description %1></td> %>
+
+        <td>
+          <span><%= live_patch "Edit", to: Routes.recipe_index_path(@socket, :edit, recipe) %></span>
+          <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: recipe.id, data: [confirm: "Are you sure?"] %></span>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<span><%= live_patch "New Recipe", to: Routes.recipe_index_path(@socket, :new) %></span>

@@ -1,0 +1,36 @@
+<div>
+  <h2><%= @title %></h2>
+
+  <.form
+    let={f}
+    for={@changeset}
+    id="recipe-form"
+    phx-target={@myself}
+    phx-change="validate"
+    phx-submit="save">
+  
+    <%= label f, :title %>
+    <%= text_input f, :title %>
+    <%= error_tag f, :title %>
+  
+    <%= label f, :source %>
+    <%= text_input f, :source %>
+    <%= error_tag f, :source %>
+  
+    <%= label f, :type %>
+    <%= select f, :type, Ecto.Enum.values(What2cook.Recipes.Recipe, :type), prompt: "Choose a value" %>
+    <%= error_tag f, :type %>
+  
+    <%= label f, :ingredients %>
+    <%= text_input f, :ingredients %>
+    <%= error_tag f, :ingredients %>
+  
+    <%= label f, :description %>
+    <%= textarea f, :description %>
+    <%= error_tag f, :description %>
+  
+    <div>
+      <%= submit "Save", phx_disable_with: "Saving..." %>
+    </div>
+  </.form>
+</div>
