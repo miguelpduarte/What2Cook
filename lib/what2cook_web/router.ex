@@ -26,6 +26,9 @@ defmodule What2CookWeb.Router do
 
     live "/recipes/:id", RecipeLive.Show, :show
     live "/recipes/:id/show/edit", RecipeLive.Show, :edit
+
+    # Menu Generator
+    live "/menu", MenuGeneratorLive.Index, :index
   end
 
   # Other scopes may use custom stacks.

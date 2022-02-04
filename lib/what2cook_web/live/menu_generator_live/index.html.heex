@@ -1,0 +1,45 @@
+<h1>Menu Generator</h1>
+
+<.form
+  let={f}
+  for={@changeset}
+  id="menu-generator-form"
+  phx-submit="generate"
+>
+    <%= label f, :number %>
+    <%= number_input f, :number %>
+    <%= error_tag f, :number %>
+
+    <%= submit "Generate", phx_disable_with: "Generating..." %>
+</.form>
+
+<%= if @recipes do %>
+<table>
+  <thead>
+    <tr>
+      <th>Index</th>
+      <th>Title</th>
+      <th>Type</th>
+      <th>Ingredients</th>
+    </tr>
+  </thead>
+  <tbody id="recipes">
+    <%= for {recipe, index} <- Enum.with_index(@recipes) do %>
+      <tr id={"recipe-#{recipe.id}"}>
+        <td>
+          <%= index + 1 %>
+        </td>
+        <td>
+        <%= live_redirect to: Routes.recipe_show_path(@socket, :show, recipe) do %>
+          <b>
+          <%= recipe.title %>
+          </b>
+        <% end %>
+        </td>
+        <td><%= recipe.type %></td>
+        <td><%= recipe.ingredients %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
