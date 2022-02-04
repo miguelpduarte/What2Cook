@@ -5,24 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <%= csrf_meta_tag() %>
-    <%= live_title_tag assigns[:page_title] || "What2cook", suffix: " · Phoenix Framework" %>
+    <%= live_title_tag assigns[:page_title] || "What2Cook", suffix: " · What2Cook" %>
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </head>
   <body>
     <header>
       <section class="container">
+        <%= link to: Routes.page_path(@conn, :index) do %>
+          <div id="logo-banner">
+            <img src={Routes.static_path(@conn, "/images/cooking-pot.png")} alt="Cooking Pot, What2Cook logo"/>
+            <span>What2Cook</span>
+          </div>
+        <% end %>
         <nav>
           <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
+            <%# <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li> %>
+            <li><%= link "Recipes", to: Routes.recipe_index_path(@conn, :index) %></li>
+            <li><%= link "Menu Generator", to: "/wip" %></li>
             <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
               <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
             <% end %>
           </ul>
         </nav>
-        <a href="https://phoenixframework.org/" class="phx-logo">
-          <img src={Routes.static_path(@conn, "/images/phoenix.png")} alt="Phoenix Framework Logo"/>
-        </a>
       </section>
     </header>
     <%= @inner_content %>
