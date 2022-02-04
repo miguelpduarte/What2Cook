@@ -5,7 +5,7 @@
 # Inside the script, you can read and write to any of your
 # repositories directly:
 #
-#     What2cook.Repo.insert!(%What2cook.SomeSchema{})
+#     What2Cook.Repo.insert!(%What2Cook.SomeSchema{})
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.

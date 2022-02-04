@@ -1,4 +1,4 @@
-defmodule What2cookWeb.Endpoint do
+defmodule What2CookWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :what2cook
 
   # The session will be stored in the cookie and signed,
@@ -46,5 +46,5 @@ defmodule What2cookWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug What2cookWeb.Router
+  plug What2CookWeb.Router
 end

@@ -1,12 +1,12 @@
-defmodule What2cook.Recipes do
+defmodule What2Cook.Recipes do
   @moduledoc """
   The Recipes context.
   """
 
   import Ecto.Query, warn: false
-  alias What2cook.Repo
+  alias What2Cook.Repo
 
-  alias What2cook.Recipes.Recipe
+  alias What2Cook.Recipes.Recipe
 
   @doc """
   Returns the list of recipes.

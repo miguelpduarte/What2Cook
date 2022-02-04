@@ -1,4 +1,4 @@
-defmodule What2cook.Application do
+defmodule What2Cook.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -9,20 +9,20 @@ defmodule What2cook.Application do
   def start(_type, _args) do
     children = [
       # Start the Ecto repository
-      What2cook.Repo,
+      What2Cook.Repo,
       # Start the Telemetry supervisor
-      What2cookWeb.Telemetry,
+      What2CookWeb.Telemetry,
       # Start the PubSub system
-      {Phoenix.PubSub, name: What2cook.PubSub},
+      {Phoenix.PubSub, name: What2Cook.PubSub},
       # Start the Endpoint (http/https)
-      What2cookWeb.Endpoint
-      # Start a worker by calling: What2cook.Worker.start_link(arg)
-      # {What2cook.Worker, arg}
+      What2CookWeb.Endpoint
+      # Start a worker by calling: What2Cook.Worker.start_link(arg)
+      # {What2Cook.Worker, arg}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: What2cook.Supervisor]
+    opts = [strategy: :one_for_one, name: What2Cook.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
@@ -30,7 +30,7 @@ defmodule What2cook.Application do
   # whenever the application is updated.
   @impl true
   def config_change(changed, _new, removed) do
-    What2cookWeb.Endpoint.config_change(changed, removed)
+    What2CookWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end

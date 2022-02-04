@@ -1,11 +1,11 @@
-defmodule What2cookWeb.Gettext do
+defmodule What2CookWeb.Gettext do
   @moduledoc """
   A module providing Internationalization with a gettext-based API.
 
   By using [Gettext](https://hexdocs.pm/gettext),
   your module gains a set of macros for translations, for example:
 
-      import What2cookWeb.Gettext
+      import What2CookWeb.Gettext
 
       # Simple translation
       gettext("Here is the string to translate")

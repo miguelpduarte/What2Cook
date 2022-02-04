@@ -1,3 +1,3 @@
-defmodule What2cookWeb.PageView do
-  use What2cookWeb, :view
+defmodule What2CookWeb.PageView do
+  use What2CookWeb, :view
 end

@@ -1,11 +1,11 @@
-defmodule What2cookWeb.Router do
-  use What2cookWeb, :router
+defmodule What2CookWeb.Router do
+  use What2CookWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_live_flash
-    plug :put_root_layout, {What2cookWeb.LayoutView, :root}
+    plug :put_root_layout, {What2CookWeb.LayoutView, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
@@ -14,7 +14,7 @@ defmodule What2cookWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", What2cookWeb do
+  scope "/", What2CookWeb do
     pipe_through :browser
 
     get "/", PageController, :index
@@ -29,7 +29,7 @@ defmodule What2cookWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", What2cookWeb do
+  # scope "/api", What2CookWeb do
   #   pipe_through :api
   # end
 
@@ -46,7 +46,7 @@ defmodule What2cookWeb.Router do
     scope "/" do
       pipe_through :browser
 
-      live_dashboard "/dashboard", metrics: What2cookWeb.Telemetry
+      live_dashboard "/dashboard", metrics: What2CookWeb.Telemetry
     end
   end
 

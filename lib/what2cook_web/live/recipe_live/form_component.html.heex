@@ -18,7 +18,7 @@
     <%= error_tag f, :source %>
   
     <%= label f, :type %>
-    <%= select f, :type, Ecto.Enum.values(What2cook.Recipes.Recipe, :type), prompt: "Choose a value" %>
+    <%= select f, :type, Ecto.Enum.values(What2Cook.Recipes.Recipe, :type), prompt: "Choose a value" %>
     <%= error_tag f, :type %>
   
     <%= label f, :ingredients %>

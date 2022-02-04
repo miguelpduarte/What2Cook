@@ -1,12 +1,12 @@
-defmodule What2cook.RecipesTest do
-  use What2cook.DataCase
+defmodule What2Cook.RecipesTest do
+  use What2Cook.DataCase
 
-  alias What2cook.Recipes
+  alias What2Cook.Recipes
 
   describe "recipes" do
-    alias What2cook.Recipes.Recipe
+    alias What2Cook.Recipes.Recipe
 
-    import What2cook.RecipesFixtures
+    import What2Cook.RecipesFixtures
 
     @invalid_attrs %{description: nil, ingredients: nil, source: nil, title: nil, type: nil}
 
@@ -21,7 +21,13 @@ defmodule What2cook.RecipesTest do
     end
 
     test "create_recipe/1 with valid data creates a recipe" do
-      valid_attrs = %{description: "some description", ingredients: "some ingredients", source: "some source", title: "some title", type: :meat}
+      valid_attrs = %{
+        description: "some description",
+        ingredients: "some ingredients",
+        source: "some source",
+        title: "some title",
+        type: :meat
+      }
 
       assert {:ok, %Recipe{} = recipe} = Recipes.create_recipe(valid_attrs)
       assert recipe.description == "some description"
@@ -37,7 +43,14 @@ defmodule What2cook.RecipesTest do
 
     test "update_recipe/2 with valid data updates the recipe" do
       recipe = recipe_fixture()
-      update_attrs = %{description: "some updated description", ingredients: "some updated ingredients", source: "some updated source", title: "some updated title", type: :fish}
+
+      update_attrs = %{
+        description: "some updated description",
+        ingredients: "some updated ingredients",
+        source: "some updated source",
+        title: "some updated title",
+        type: :fish
+      }
 
       assert {:ok, %Recipe{} = recipe} = Recipes.update_recipe(recipe, update_attrs)
       assert recipe.description == "some updated description"

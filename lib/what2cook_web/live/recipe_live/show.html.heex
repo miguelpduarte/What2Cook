@@ -3,7 +3,7 @@
 <%= if @live_action in [:edit] do %>
   <.modal return_to={Routes.recipe_show_path(@socket, :show, @recipe)}>
     <.live_component
-      module={What2cookWeb.RecipeLive.FormComponent}
+      module={What2CookWeb.RecipeLive.FormComponent}
       id={@recipe.id}
       title={@page_title}
       action={@live_action}

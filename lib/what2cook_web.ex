@@ -1,12 +1,12 @@
-defmodule What2cookWeb do
+defmodule What2CookWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use What2cookWeb, :controller
-      use What2cookWeb, :view
+      use What2CookWeb, :controller
+      use What2CookWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,11 +19,11 @@ defmodule What2cookWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: What2cookWeb
+      use Phoenix.Controller, namespace: What2CookWeb
 
       import Plug.Conn
-      import What2cookWeb.Gettext
-      alias What2cookWeb.Router.Helpers, as: Routes
+      import What2CookWeb.Gettext
+      alias What2CookWeb.Router.Helpers, as: Routes
     end
   end
 
@@ -31,7 +31,7 @@ defmodule What2cookWeb do
     quote do
       use Phoenix.View,
         root: "lib/what2cook_web/templates",
-        namespace: What2cookWeb
+        namespace: What2CookWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
@@ -45,7 +45,7 @@ defmodule What2cookWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {What2cookWeb.LayoutView, "live.html"}
+        layout: {What2CookWeb.LayoutView, "live.html"}
 
       unquote(view_helpers())
     end
@@ -80,7 +80,7 @@ defmodule What2cookWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import What2cookWeb.Gettext
+      import What2CookWeb.Gettext
     end
   end
 
@@ -91,14 +91,14 @@ defmodule What2cookWeb do
 
       # Import LiveView and .heex helpers (live_render, live_patch, <.form>, etc)
       import Phoenix.LiveView.Helpers
-      import What2cookWeb.LiveHelpers
+      import What2CookWeb.LiveHelpers
 
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
 
-      import What2cookWeb.ErrorHelpers
-      import What2cookWeb.Gettext
-      alias What2cookWeb.Router.Helpers, as: Routes
+      import What2CookWeb.ErrorHelpers
+      import What2CookWeb.Gettext
+      alias What2CookWeb.Router.Helpers, as: Routes
     end
   end
 

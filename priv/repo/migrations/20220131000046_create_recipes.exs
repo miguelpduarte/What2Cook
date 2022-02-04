@@ -1,4 +1,4 @@
-defmodule What2cook.Repo.Migrations.CreateRecipes do
+defmodule What2Cook.Repo.Migrations.CreateRecipes do
   use Ecto.Migration
 
   def change do

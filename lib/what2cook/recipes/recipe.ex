@@ -1,4 +1,4 @@
-defmodule What2cook.Recipes.Recipe do
+defmodule What2Cook.Recipes.Recipe do
   use Ecto.Schema
   import Ecto.Changeset
 

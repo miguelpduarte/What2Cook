@@ -8,13 +8,13 @@
 import Config
 
 config :what2cook,
-  ecto_repos: [What2cook.Repo]
+  ecto_repos: [What2Cook.Repo]
 
 # Configures the endpoint
-config :what2cook, What2cookWeb.Endpoint,
+config :what2cook, What2CookWeb.Endpoint,
   url: [host: "localhost"],
-  render_errors: [view: What2cookWeb.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: What2cook.PubSub,
+  render_errors: [view: What2CookWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: What2Cook.PubSub,
   live_view: [signing_salt: "VP62hvzO"]
 
 # Configures the mailer
@@ -24,7 +24,7 @@ config :what2cook, What2cookWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :what2cook, What2cook.Mailer, adapter: Swoosh.Adapters.Local
+config :what2cook, What2Cook.Mailer, adapter: Swoosh.Adapters.Local
 
 # Swoosh API client is needed for adapters other than SMTP.
 config :swoosh, :api_client, false

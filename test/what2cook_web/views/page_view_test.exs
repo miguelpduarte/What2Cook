@@ -1,3 +1,3 @@
-defmodule What2cookWeb.PageViewTest do
-  use What2cookWeb.ConnCase, async: true
+defmodule What2CookWeb.PageViewTest do
+  use What2CookWeb.ConnCase, async: true
 end

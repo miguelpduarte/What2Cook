@@ -1,5 +1,5 @@
-defmodule What2cookWeb.LayoutView do
-  use What2cookWeb, :view
+defmodule What2CookWeb.LayoutView do
+  use What2CookWeb, :view
 
   # Phoenix LiveDashboard is available only in development by default,
   # so we instruct Elixir to not warn if the dashboard route is missing.

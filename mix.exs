@@ -1,4 +1,4 @@
-defmodule What2cook.MixProject do
+defmodule What2Cook.MixProject do
   use Mix.Project
 
   def project do
@@ -19,7 +19,7 @@ defmodule What2cook.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {What2cook.Application, []},
+      mod: {What2Cook.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -64,7 +64,8 @@ defmodule What2cook.MixProject do
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
-      "assets.deploy": ["esbuild default --minify", "phx.digest"]
+      "assets.deploy": ["esbuild default --minify", "phx.digest"],
+      "phx.routes": "phx.routes What2CookWeb.Router"
     ]
   end
 end

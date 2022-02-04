@@ -1,4 +1,4 @@
-defmodule What2cookWeb.ErrorHelpers do
+defmodule What2CookWeb.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -39,9 +39,9 @@ defmodule What2cookWeb.ErrorHelpers do
     # should be written to the errors.po file. The :count option is
     # set by Ecto and indicates we should also apply plural rules.
     if count = opts[:count] do
-      Gettext.dngettext(What2cookWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(What2CookWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(What2cookWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(What2CookWeb.Gettext, "errors", msg, opts)
     end
   end
 end

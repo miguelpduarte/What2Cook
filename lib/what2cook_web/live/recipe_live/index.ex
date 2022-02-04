@@ -1,8 +1,8 @@
-defmodule What2cookWeb.RecipeLive.Index do
-  use What2cookWeb, :live_view
+defmodule What2CookWeb.RecipeLive.Index do
+  use What2CookWeb, :live_view
 
-  alias What2cook.Recipes
-  alias What2cook.Recipes.Recipe
+  alias What2Cook.Recipes
+  alias What2Cook.Recipes.Recipe
 
   @impl true
   def mount(_params, _session, socket) do

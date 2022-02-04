@@ -1,7 +1,7 @@
-defmodule What2cookWeb.RecipeLive.Show do
-  use What2cookWeb, :live_view
+defmodule What2CookWeb.RecipeLive.Show do
+  use What2CookWeb, :live_view
 
-  alias What2cook.Recipes
+  alias What2Cook.Recipes
 
   @impl true
   def mount(_params, _session, socket) do

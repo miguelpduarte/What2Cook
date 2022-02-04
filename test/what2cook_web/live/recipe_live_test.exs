@@ -1,11 +1,23 @@
-defmodule What2cookWeb.RecipeLiveTest do
-  use What2cookWeb.ConnCase
+defmodule What2CookWeb.RecipeLiveTest do
+  use What2CookWeb.ConnCase
 
   import Phoenix.LiveViewTest
-  import What2cook.RecipesFixtures
+  import What2Cook.RecipesFixtures
 
-  @create_attrs %{description: "some description", ingredients: "some ingredients", source: "some source", title: "some title", type: :meat}
-  @update_attrs %{description: "some updated description", ingredients: "some updated ingredients", source: "some updated source", title: "some updated title", type: :fish}
+  @create_attrs %{
+    description: "some description",
+    ingredients: "some ingredients",
+    source: "some source",
+    title: "some title",
+    type: :meat
+  }
+  @update_attrs %{
+    description: "some updated description",
+    ingredients: "some updated ingredients",
+    source: "some updated source",
+    title: "some updated title",
+    type: :fish
+  }
   @invalid_attrs %{description: nil, ingredients: nil, source: nil, title: nil, type: nil}
 
   defp create_recipe(_) do

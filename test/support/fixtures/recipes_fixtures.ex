@@ -1,7 +1,7 @@
-defmodule What2cook.RecipesFixtures do
+defmodule What2Cook.RecipesFixtures do
   @moduledoc """
   This module defines test helpers for creating
-  entities via the `What2cook.Recipes` context.
+  entities via the `What2Cook.Recipes` context.
   """
 
   @doc """
@@ -17,7 +17,7 @@ defmodule What2cook.RecipesFixtures do
         title: "some title",
         type: :meat
       })
-      |> What2cook.Recipes.create_recipe()
+      |> What2Cook.Recipes.create_recipe()
 
     recipe
   end

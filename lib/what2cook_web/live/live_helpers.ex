@@ -1,4 +1,4 @@
-defmodule What2cookWeb.LiveHelpers do
+defmodule What2CookWeb.LiveHelpers do
   import Phoenix.LiveView
   import Phoenix.LiveView.Helpers
 
@@ -14,7 +14,7 @@ defmodule What2cookWeb.LiveHelpers do
 
       <.modal return_to={Routes.recipe_index_path(@socket, :index)}>
         <.live_component
-          module={What2cookWeb.RecipeLive.FormComponent}
+          module={What2CookWeb.RecipeLive.FormComponent}
           id={@recipe.id || :new}
           title={@page_title}
           action={@live_action}

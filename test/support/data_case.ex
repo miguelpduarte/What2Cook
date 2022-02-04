@@ -1,4 +1,4 @@
-defmodule What2cook.DataCase do
+defmodule What2Cook.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -10,7 +10,7 @@ defmodule What2cook.DataCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use What2cook.DataCase, async: true`, although
+  by setting `use What2Cook.DataCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -18,17 +18,17 @@ defmodule What2cook.DataCase do
 
   using do
     quote do
-      alias What2cook.Repo
+      alias What2Cook.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import What2cook.DataCase
+      import What2Cook.DataCase
     end
   end
 
   setup tags do
-    pid = Ecto.Adapters.SQL.Sandbox.start_owner!(What2cook.Repo, shared: not tags[:async])
+    pid = Ecto.Adapters.SQL.Sandbox.start_owner!(What2Cook.Repo, shared: not tags[:async])
     on_exit(fn -> Ecto.Adapters.SQL.Sandbox.stop_owner(pid) end)
     :ok
   end

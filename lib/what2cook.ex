@@ -1,6 +1,6 @@
-defmodule What2cook do
+defmodule What2Cook do
   @moduledoc """
-  What2cook keeps the contexts that define your domain
+  What2Cook keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

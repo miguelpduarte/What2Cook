@@ -1,7 +1,7 @@
-defmodule What2cookWeb.RecipeLive.FormComponent do
-  use What2cookWeb, :live_component
+defmodule What2CookWeb.RecipeLive.FormComponent do
+  use What2CookWeb, :live_component
 
-  alias What2cook.Recipes
+  alias What2Cook.Recipes
 
   @impl true
   def update(%{recipe: recipe} = assigns, socket) do

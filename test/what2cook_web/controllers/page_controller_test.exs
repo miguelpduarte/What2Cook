@@ -1,5 +1,5 @@
-defmodule What2cookWeb.PageControllerTest do
-  use What2cookWeb.ConnCase
+defmodule What2CookWeb.PageControllerTest do
+  use What2CookWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get(conn, "/")

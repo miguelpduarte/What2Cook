@@ -1,5 +1,5 @@
-defmodule What2cookWeb.ErrorView do
-  use What2cookWeb, :view
+defmodule What2CookWeb.ErrorView do
+  use What2CookWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

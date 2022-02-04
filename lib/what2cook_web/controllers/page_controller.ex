@@ -1,5 +1,5 @@
-defmodule What2cookWeb.PageController do
-  use What2cookWeb, :controller
+defmodule What2CookWeb.PageController do
+  use What2CookWeb, :controller
 
   def index(conn, _params) do
     render(conn, "index.html")

@@ -1,4 +1,4 @@
-# What2cook
+# What2Cook
 
 To start your Phoenix server:
 
