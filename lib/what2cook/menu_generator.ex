@@ -12,17 +12,22 @@ defmodule What2Cook.MenuGenerator do
   def generate_menu(n_recipes) do
     n_total_recipes = Repo.aggregate(Recipe, :count, :id)
 
-    if n_recipes > n_total_recipes,
-      do: raise("There are not enough recipes in the system to generate the requested menu")
+    case n_recipes > n_total_recipes do
+      true ->
+        {:error, "Not enough recipes to generate the requested menu"}
 
-    # See https://stackoverflow.com/questions/53165642/fetch-random-records-from-ecto-database
-    # There might be a faster solution to consider if the table grows substantially
-    query =
-      from Recipe,
-        order_by: fragment("RANDOM()"),
-        limit: ^n_recipes
-
-    Repo.all(query)
+      # if n_recipes > n_total_recipes,
+      #   do: raise("There are not enough recipes in the system to generate the requested menu")
+      false ->
+        # See https://stackoverflow.com/questions/53165642/fetch-random-records-from-ecto-database
+        # There might be a faster solution to consider if the table grows substantially
+        {:ok,
+         Recipe
+         |> select([:id, :title, :type, :ingredients])
+         |> order_by(fragment("RANDOM()"))
+         |> limit(^n_recipes)
+         |> Repo.all()}
+    end
   end
 
   def get_default_config() do

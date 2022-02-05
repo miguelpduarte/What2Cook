@@ -25,7 +25,7 @@ defmodule What2CookWeb.MenuGeneratorLive.Index do
       |> MenuGenerator.change(menu_config_params)
       |> Map.put(:action, :validate)
 
-    # If so, get the menu thingies
+    # If so, get the menu recipes
     recipes =
       if changeset.valid? do
         changeset
@@ -33,10 +33,17 @@ defmodule What2CookWeb.MenuGeneratorLive.Index do
         |> MenuGenerator.generate_menu()
       end
 
-    socket = assign(socket, :recipes, recipes)
-    # ^The above logic should probably be in the context (?) lol
+    # ^The above logic should probably be in the context
 
-    # Update the changeset anyway
+    socket =
+      case recipes do
+        # This occurs when the changeset is not valid, so the call to the context does not even occur
+        nil -> socket
+        {:ok, recipes} -> socket |> clear_flash(:error) |> assign(:recipes, recipes)
+        {:error, reason} -> put_flash(socket, :error, reason)
+      end
+
+    # Always update the changeset
     socket = assign(socket, :changeset, changeset)
 
     {:noreply, socket}
