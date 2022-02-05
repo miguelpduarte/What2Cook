@@ -7,8 +7,10 @@
   phx-submit="generate"
 >
     <%= label f, :number %>
-    <%= number_input f, :number %>
-    <%= error_tag f, :number %>
+    <span style="flex-grow:1">
+      <%= number_input f, :number %>
+      <%= error_tag f, :number %>
+    </span>
 
     <%= submit "Generate", phx_disable_with: "Generating..." %>
 </.form>
