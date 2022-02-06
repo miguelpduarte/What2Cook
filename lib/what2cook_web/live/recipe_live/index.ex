@@ -6,7 +6,10 @@ defmodule What2CookWeb.RecipeLive.Index do
 
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, assign(socket, :recipes, list_recipes())}
+    recipes = list_recipes()
+
+    # :total_recipes is used to filter always on the same original list, instead of successively filtering the same list
+    {:ok, assign(socket, recipes: recipes, total_recipes: recipes)}
   end
 
   @impl true
@@ -37,7 +40,24 @@ defmodule What2CookWeb.RecipeLive.Index do
     recipe = Recipes.get_recipe!(id)
     {:ok, _} = Recipes.delete_recipe(recipe)
 
-    {:noreply, assign(socket, :recipes, list_recipes())}
+    recipes = list_recipes()
+    {:noreply, assign(socket, recipes: recipes, total_recipes: recipes)}
+  end
+
+  def handle_event("search", %{"search" => %{"query" => search_query}}, socket) do
+    filtered_recipes =
+      if String.trim(search_query) != "" do
+        search_query = String.downcase(search_query)
+
+        socket.assigns.total_recipes
+        |> Enum.filter(&String.contains?(String.downcase(&1.title), search_query))
+      else
+        socket.assigns.total_recipes
+      end
+
+    {:noreply,
+     socket
+     |> assign(:recipes, filtered_recipes)}
   end
 
   defp list_recipes do
